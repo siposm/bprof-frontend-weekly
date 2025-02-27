@@ -1,0 +1,34 @@
+body {
+    text-align: center;
+    border: 10px dashed pink;
+    padding: 10px;
+}
+
+.nav-list {
+    list-style-type: none;
+}
+
+.bordered {
+    border: 3px solid blue;
+    border-radius: 30px;
+    background-color: red;
+    width: 300px;
+    height: 330px;
+}
+.marked {
+    color: rgb(53, 212, 84);
+    background-color: beige;
+    padding: 20px;
+    /* padding: 10px 30px 50px 80px; */
+    /* padding: 20px 60px; */
+    margin: 20px;
+    /* letter-spacing: 10px; */
+    /* font-weight: bold; */
+}
+.highlight {
+    background-color: yellow;
+}
+#important {
+    font-weight: bold;
+    text-decoration: underline;
+}
