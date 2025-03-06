@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    border: 2px solid red;
+}
+
+body {
+    /* background-color: rgb(250, 252, 186) !important; */
+    background-color: rgb(250, 252, 186);
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    border: 10px dashed pink;
+    padding: 10px;
+}
+
+/* body {
+    background-color: aquamarine;
+} */
+
+.nav-list {
+    list-style-type: none;
+    margin-bottom: 30px;
+}
+
+.myButton {
+    box-shadow: inset 0px 1px 0px 0px #fff6af;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    border-radius: 6px;
+    border: 1px solid #ffaa22;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 7px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
+}
+
+.myButton:hover {
+    background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    background-color: #ffab23;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.nav-list li {
+    display: inline;
+}
+
+/* .nav-list li {
+    background-color: aqua;
+    letter-spacing: 4px;
+    display: inline;
+    padding: 5px 8px;
+    border-radius: 10px;
+} */
+
+/* .nav-list li:hover {
+    background-color: chartreuse;
+} */
+
+/* .nav-list li::before {
+    content: "[ ";
+}
+.nav-list li::after {
+    content: " ]";
+} */
+
+/* .nav-list a {
+    text-decoration: none;
+} */
+
+.bordered {
+    border: 3px solid blue;
+    border-radius: 30px;
+    background-color: red;
+    width: 700px;
+}
+
+.marked {
+    color: rgb(53, 212, 84);
+    background-color: beige;
+    padding: 20px;
+    /* padding: 10px 30px 50px 80px; */
+    /* padding: 20px 60px; */
+    margin: 20px;
+    /* letter-spacing: 10px; */
+    /* font-weight: bold; */
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+#important {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 900px) {
+    body {
+        background-color: rgb(137, 243, 125);
+        font-family: "Roboto";
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: rgb(236, 185, 255);
+    }
+    .nav-list li {
+        display: block;
+        margin-bottom: 5px;
+    }
+    iframe {
+        display: none;
+    }
+}
