@@ -1,0 +1,1 @@
+jsdoc komment valamelyest segít a típustalanságon
