@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Példa</title>
+</head>
+<body>
+
+    <h1>
+        A következő példa egy Promise-t hoz létre, amely szimulálja egy adatkérés késleltetését, majd .then() és .catch() segítségével dolgozza fel az eredményt.
+    </h1>
+
+    <button id="loadData">Adatok betöltése</button>
+    <p id="result">Eredmény: </p>
+
+    <script>
+        function fetchData() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let success = Math.random() > 0.3 // 70% esély a sikerre
+                    if (success) {
+                        resolve("Adatok sikeresen betöltve!")
+                    } else {
+                        reject("Hiba történt az adatok lekérésekor.")
+                    }
+                }, 2000) // 2 másodperces késleltetés
+            })
+        }
+
+        document.getElementById("loadData").addEventListener("click", function() {
+            document.getElementById("result").textContent = "Adatok betöltése..."
+            
+            fetchData()
+                .then(data => {
+                    document.getElementById("result").textContent = `✅ ${data}`
+                })
+                .catch(error => {
+                    document.getElementById("result").textContent = `❌ ${error}`
+                })
+        });
+    </script>
+
+</body>
+</html>

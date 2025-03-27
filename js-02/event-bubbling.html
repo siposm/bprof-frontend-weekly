@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eseménybuborékolás</title>
+</head>
+<body>
+
+    <h1>
+        Az alábbi példában a kattintási esemény elindul egy span-en, majd végighalad a p, a div, és végül a body elemig.
+    </h1>
+
+    <div style="padding: 20px; background-color: lightblue;">
+        <p style="padding: 10px; background-color: lightcoral;">
+            <span style="padding: 5px; background-color: lightgreen; cursor: pointer;">Kattints ide!</span>
+        </p>
+    </div>
+
+    <script>
+        document.body.addEventListener("click", function() {
+            console.log("BODY elemre kattintottál!")
+        })
+
+        document.querySelector("div").addEventListener("click", function() {
+            console.log("DIV elemre kattintottál!")
+        })
+
+        document.querySelector("p").addEventListener("click", function() {
+            console.log("P elemre kattintottál!")
+        })
+
+        document.querySelector("span").addEventListener("click", function() {
+            console.log("SPAN elemre kattintottál!")
+            // event.stopPropagation() // Megállítja a buborékolást
+        })
+    </script>
+
+</body>
+</html>

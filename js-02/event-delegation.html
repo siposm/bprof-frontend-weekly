@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eseménydelegálás</title>
+</head>
+<body>
+
+    <h1>
+        Az alábbi példa azt mutatja be, hogy egy div-re helyezett kattintási eseménykezelő az összes benne lévő gombra hatással van, még akkor is, ha új gombokat adunk hozzá.
+    </h1>
+
+    <div id="container">
+        <button>Gomb 1</button>
+        <button>Gomb 2</button>
+    </div>
+    <button id="addButton">Új gomb hozzáadása</button>
+
+    <script>
+        const container = document.getElementById("container")
+        const addButton = document.getElementById("addButton")
+
+        // Eseménydelegálás: a container-re tesszük az eseménykezelőt
+        container.addEventListener("click", function(event) {
+            if (event.target.tagName === "BUTTON") {
+                console.log("Megnyomtad: " + event.target.textContent)
+            }
+        })
+
+        // Új gombok dinamikus hozzáadása
+        addButton.addEventListener("click", function() {
+            const newButton = document.createElement("button")
+            newButton.textContent = "Új gomb"
+            container.appendChild(newButton)
+        })
+    </script>
+
+</body>
+</html>
