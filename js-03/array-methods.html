@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Array methods</h1>
+    <script>
+        "use strict"
+
+        let numbers = [1, 2, 3, 4]
+        let names = [
+            "Kiss Zsombor",
+            "Tóth Tamara",
+            "Kiss Lajos",
+            "Varga Lajos",
+            "Szabó Kata",
+            "Varga András",
+        ]
+
+        // MAP: Minden elemmel egy bizonyos műveletet végzek és ezáltal egy új tömböt hozunk létre.
+
+        let doubled = numbers.map(x => x * 2)
+        console.log(doubled)
+
+        let allCaps = names.map(x => x.toUpperCase())
+        console.log(allCaps)
+
+        // ===============================================================================================
+
+        // FILTER: Adott feltételnek eleget tevő elemek leválogatása.
+
+        let evens = numbers.filter(x => x % 2 === 0)
+        console.log(evens)
+
+        let lajosok = names.filter(x => x.includes("Lajos"))
+        console.log(lajosok)
+
+        // ===============================================================================================
+
+        // REDUCE: Az elemeket egyetlen értékké összesítjük / "sűrítjük".
+
+        let sum = numbers.reduce((acc, num) => acc + num, 0)
+        console.log(sum)
+
+        let charCount = names.reduce((acc, num) => acc + num.length, 0)
+        console.log(charCount)
+
+        // ===============================================================================================
+
+        // SORT: Az elemeket rendezni tudjuk. (Alapértelmezés szerint karakterlánc-sorrendben rendez.)
+
+        let sortedNumbers = numbers.sort((a, b) => b - a)
+        console.log(sortedNumbers)
+
+        // let sortedNames = names.sort((a,b) => b.localeCompare(a))
+        let sortedNames = names.sort()
+        console.log(sortedNames)
+
+        // ===============================================================================================
+
+        // SOME: Megnézzük, hogy van-e legalább egy olyan elem, amely megfelel a feltételnek.
+
+        let hasEven = numbers.some(x => x % 2 === 0)
+        console.log("Van páros szám:", hasEven)
+
+        console.log("Van Kata:", names.some(x => x.includes("Kata")))
+        console.log("Van Tamás:", names.some(x => x.includes("Tamás")))
+
+        // EVERY: Megnézzük, hogy MINDEN elem megfelel-e a feltételnek.
+
+        let everyItem = numbers.every(x => x % 2 === 0)
+        console.log(everyItem)
+
+        // ===============================================================================================
+
+        // FIND: Megkeressük, a feltételnek megfelelő elemet és az elemet adjuk vissza.
+        // FIND INDEX: Megkeressük, a feltételnek megfelelő elemet és az indexet adjuk vissza.
+
+        let nameToFind = "Varga András"
+        console.log("Keresett elem:", names.find(x => x === nameToFind))
+        console.log("Keresett elem:", names.findIndex(x => x === nameToFind))
+
+        console.log(names.indexOf("Varga András"))
+        console.log(names.lastIndexOf("Varga András"))
+
+        // ===============================================================================================
+
+        // Egyebek: toString, join, concat, splice, slice, flat
+
+        // tostring: elemek összefűzése és stringes kiírása
+        console.log(names.toString())
+
+        // concat: két tömb összefűzése
+        let arr1 = ["alma", "körte", "szilva"]
+        let arr2 = ["valami-1", "valami-2"]
+        let merged = arr1.concat(arr2)
+        console.log(merged)
+
+        // slice: tömb egy részének levágása
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+        console.log(merged.slice(1, 4))
+
+        // splice: tömbben egy elem beszúrása / törlése
+        // mutálja az eredeti tömböt!!!, ha nem akarjuk akkor toSpliced() van helyette
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+        merged.splice(1, 0, "ÚJ-ELEM") // 1. indexű helyre új elem beszúrása
+        console.log(merged)
+
+        merged.splice(1, 1, "MÓDOSÍTOTT-ÚJ-ELEM") // 1. indexű elem módosítása
+        console.log(merged)
+
+        merged.splice(0, 1) // 0. indexű elem törlése
+        console.log(merged)
+
+        // flat: többdimenzós tömbök "kisimiítása", 1D leképezése
+        let classes = [
+            [ "John Doe", "Test Wilson", "Tony Stark" ],
+            [ "Vision", "Bruce Banner" ],
+            [ "Wanda Maximoff", "Thanos", "Steve Rogers" ],
+        ]
+        console.log(classes.flat())
+
+    </script>
+</body>
+
+</html>
