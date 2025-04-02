@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .done {
+            color: green;
+            text-decoration: line-through;
+        }
+        .done::before {
+            content: "✓";
+        }
+    </style>
+</head>
+<body>
+    <h1>TODO</h1>
+    <hr>
+    <input type="text" id="todo-input" placeholder="Todo's content">
+    <button onclick="addNew()">Add new to do</button>
+    <div id="target"></div>
+    <script src="todo.js"></script>
+</body>
+</html>
