@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Promise vs Async-await</h1>
+    <script>
+        // Egy Promise-alapú függvény, amely szimulál egy aszinkron műveletet
+        targetFunction = (ms) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (Math.random() > 0.1) {
+                        resolve(`Sikeres végrehajtás ${ms} ms után`)
+                    } else {
+                        reject("Hiba történt!")
+                    }
+                }, ms)
+            })
+        }
+
+        // Promise.then().catch() használata
+        function test_version_1() {
+            targetFunction(1000)
+            .then((result) => console.log("Promise then/catch példa:", result))
+            .catch((error) => console.error("Promise then/catch hiba:", error))
+        }
+
+        test_version_1()
+
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        // Async-await használata
+        async function test_version_2() {
+            try {
+                const result = await targetFunction(1500)
+                console.log("Async-await példa:", result)
+            } catch (error) {
+                console.error("Async-await hiba:", error)
+            }
+        }
+
+        test_version_2()
+
+    </script>
+</body>
+
+</html>
