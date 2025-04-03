@@ -47,13 +47,14 @@ A zárthelyi dolgozat alatt nem lehet használni internetet, sem semmilyen segé
 
 A zárthelyit két turnusban írják majd, A és B csoportra bontva, az alábbi időpontoknak megfelelően. A ZH percre pontosan akkor kezdődik amikor, késés esetén a hallgató nem vehet részt a zárthelyin (első turnus esetén a másodikon sem). Kérem mindenki ennek megfelelően pontosan időzítsen.
 
-| Csoport         | Gyakorlati rész | Elméleti rész |
-|----------------|----------------|---------------|
-| **A csoport** | 13:30 - 14:00  | 14:00 - 14:20 |
-| **Teremcsere**  | 14:20 - 14:30  | -             |
-| **B csoport** | 14:30 - 15:00  | 15:00 - 15:20 |
-
-Csoportok beosztása:
+| Esemény | Idősáv |
+|----|----|
+| A csoport érkezés + instrukciók | 13:20 - 13:30 |
+| A csoport gyakorlati rész | 13:30 - 14:00 |
+| A csoport elméleti rész | 14:00 - 14:20 |
+| Teremcsere, B csoport instrukciók | 14:20 - 14:30 |
+| B csoport gyakorlati rész | 14:30 - 15:00 |
+| B csoport elméleti rész | 15:00 - 15:20 |
 
 | A csoport  | \| | B csoport    |
 |------------| - |--------------|
