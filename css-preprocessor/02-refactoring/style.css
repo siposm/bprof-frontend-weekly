@@ -1,0 +1,90 @@
+/* Default Button */
+.button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #2980b9;
+}
+
+.button-primary {
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: 1px solid #2980b9;
+}
+
+.button-secondary {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #27ae60;
+}
+
+.header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    font-size: 24px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+}
+
+.card-header {
+    background-color: #2c3e50;
+    color: #fff;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 5px 5px 0 0;
+}
+
+.card-body {
+    font-size: 16px;
+    color: #2c3e50;
+    padding: 20px;
+}
+
+.modal {
+    background-color: #fff;
+    color: #2c3e50;
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+}
+
+.modal-header {
+    background-color: #3498db;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 5px 5px 0 0;
+}
+
+.modal-body {
+    font-size: 16px;
+    color: #2c3e50;
+    padding: 20px;
+}
+
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    font-size: 14px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+}

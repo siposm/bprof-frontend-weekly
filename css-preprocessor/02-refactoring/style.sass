@@ -1,0 +1,95 @@
+/* Color Variables */
+$primary-color: #3498db
+$primary-light-color: #2980b9
+$secondary-color: #2ecc71
+$secondary-light-color: #27ae60
+$dark-color: #2c3e50
+$light-color: #ecf0f1
+$border-color: #bdc3c7
+
+/* Font Size Variables */
+$font-size-small: 14px
+$font-size-medium: 16px
+$font-size-large: 18px
+$font-size-xlarge: 20px
+$font-size-xxlarge: 24px
+
+/* Border Radius Variables */
+$radius-small: 5px
+$radius-medium: 10px
+
+/* Reusable Button Styles */
+.button
+    background-color: $primary-color
+    color: $light-color
+    padding: 10px 20px
+    font-size: $font-size-medium
+    border-radius: $radius-small
+    border: 1px solid $primary-light-color
+
+    &-primary
+        background-color: $primary-color
+        border: 1px solid $primary-light-color
+
+    &-secondary
+        background-color: $secondary-color
+        border: 1px solid $secondary-light-color
+
+/* Header */
+.header
+    background-color: $dark-color
+    color: $light-color
+    font-size: $font-size-xxlarge
+    padding: 20px
+    border-radius: $radius-medium
+
+/* Card */
+.card
+    background-color: $light-color
+    color: $dark-color
+    font-size: $font-size-medium
+    padding: 20px
+    border-radius: $radius-small
+    border: 1px solid $border-color
+
+    &-header
+        background-color: $dark-color
+        color: $light-color
+        font-size: $font-size-large
+        padding: 15px
+        border-radius: $radius-small $radius-small 0 0
+
+    &-body
+        font-size: $font-size-medium
+        color: $dark-color
+        padding: 20px
+
+/* Modal */
+.modal
+    background-color: $light-color
+    color: $dark-color
+    font-size: $font-size-large
+    padding: 20px
+    border-radius: $radius-small
+    border: 1px solid $border-color
+
+    &-header
+        background-color: $primary-color
+        color: $light-color
+        font-size: $font-size-xlarge
+        padding: 15px
+        border-radius: $radius-small $radius-small 0 0
+
+    &-body
+        font-size: $font-size-medium
+        color: $dark-color
+        padding: 20px
+
+/* Footer */
+.footer
+    background-color: $dark-color
+    color: $light-color
+    font-size: $font-size-small
+    padding: 15px
+    text-align: center
+    border-radius: $radius-small
