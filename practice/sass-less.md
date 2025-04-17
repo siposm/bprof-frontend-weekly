@@ -1,18 +1,18 @@
-# Sass / Less gyakorló feladat
+# Sass / Less gyakorló feladat: CSS refaktorálás
 
 Az alább található HTML oldalt és a hozzá tartozó CSS-t refaktorálja SASS vagy LESS felhasználással. A kettő CSS preprocesszor között szabadon megválasztható, hogy melyiket kívánja használni.
 
 Refaktorálandó feladatok:
 
 - A színeket szervezze ki külön változókba.
-- A gombokat mixin-ek segítségével valósítsa meg. (`@mixin`, `@include`)
-- A card elemet beágyazással (nestinggel) valósítsa meg. (`&-...`)
+- A gombokat mixin-ek segítségével valósítsa meg. (sass esetén: `@mixin`, `@include`)
+- A card elemet beágyazással (nestinggel) valósítsa meg. (sass esetén: `&-...`)
 
 Kiegészítés:
 
 - A meglévő feladatot egészítse ki valamilyen saját elgondolással, amihez használjon megfelelő css preprocesszorbéli eszközt.
 
-## A HTML
+## HTML
 
 ```html
 <!DOCTYPE html>
@@ -49,7 +49,7 @@ Kiegészítés:
 </html>
 ```
 
-## A CSS
+## CSS
 
 ```css
 body {

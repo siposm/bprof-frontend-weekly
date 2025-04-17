@@ -1,4 +1,4 @@
-# Angular gyakorló feladat: Todo
+# Angular gyakorló feladat: Todo kezelő
 
 Készítsen egy Todo alkalmazást Angular segítségével.
 

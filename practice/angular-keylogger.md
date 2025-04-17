@@ -9,13 +9,32 @@ Hozzon létre 2 db input mezőt:
 
 Hozzon létre egy `User` osztályt, amibe pont ez a két tulajdonság foglaljon helyet, majd ezek legyenek adatkötve az inputmezőkhöz.
 
-Bármelyik inputmezőbe is ír a felhasználó, karakterleütésenként localstorage-ba mentse el a beírtakat.
+Bármelyik inputmezőbe is ír a felhasználó, **karakterleütésenként** írja ki `div`-be a tartalmat a következő formában:
 
-Ellenőrzésnek nyissa meg a developer tools nézetet és ellenőrizze, hogy localstorage-ban tényleg leütésenként frissül-e.
+```txt
+Username: {ide kerül az aktuálisan beírt username értéke}
+Password: {ide kerül az aktuálisan beírt password értéke}
+```
 
-Hozzon létre egy gombot, amelyre kattintva `alert()` ablak segítségével jelenítse meg a beírt tartalmakat, **szerializált** formában.
+Hozzon létre egy gombot, amelyre kattintva `alert()` ablak segítségével jelenítse meg a beírt tartalmakat, szerializált (`JSON.stringify()`) formában.
 
-## Bővítés
+## Feltételes megjelenítés
+
+A div elemben csak akkor jelenjen meg a tartalom, ha a két inputmező értéke nem üres! Ha üres, akkor az jelenjen meg, hogy "Még nincs beírt tartalom.".
+
+## Class használat
+
+Amennyiben a username hossza 5 vagy annál kevesebb, akkor a színe legyen piros, egyéb esetben zöld. Ehhez hozzon létre két saját osztályt (pl. wrong, good) és állítsa be ezeket.
+
+Password esetén vizsgálja meg, hogy van-e legalább 8 karakter és van-e benne szám karakter és legalább egy speciális karakter (pl. @&#!%/=). Ha ezek teljesülnek akkor legyen zöld színű, egyéb esetben legyen piros színű.
+
+## Localstorage bevezetés
+
+Módosítsa úgy a feladatot, hogy localstorage-ba írja ki a tartalmat, a p tag-ek helyett.
+
+Nyissa meg a developer tools nézetet és ellenőrizze, hogy localstorage-ban tényleg leütésenként frissül-e.
+
+## Időbélyeg bevezetés
 
 Egészítse ki a meglévő feladatot úgy, hogy a localstorage-ban tárolásnál nyomon lehessen követni, hogyan változott a beírás. Ehhez lássa el időbélyegekkel az adott mentés pillanatait (karakterleütések).
 

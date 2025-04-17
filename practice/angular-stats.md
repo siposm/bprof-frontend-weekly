@@ -2,9 +2,11 @@
 
 Készítsen egy statisztikákat számító Angular alkalmazást.
 
-Az alul található json kódot használva fel seed adatként az alkalmazásban. Később a seedelés kiváltható API hívással is, melyet erről a végpontról lehet megtenni: <https://api.siposm.hu/job>
+Az alul található json kódot használja fel seed adatként az alkalmazásban. Később a seedelés kiváltható API hívással is, melyet erről a végpontról lehet megtenni: <https://api.siposm.hu/job>
 
-Az elemeket feldolgozva végezze el a következő szűréseket:
+Az elemeket feldolgozva végezze el a következő szűréseket, mindegyiket külön metódussal és mindegyik eredménye legyen megjelenítve a html-en is.
+
+Feladatok:
 
 - melyik foglalkozás az, amelynek a leghosszabb a leírása?
 - melyik foglalkozás id-jában van a legtöbb betű karakter?
@@ -13,7 +15,7 @@ Az elemeket feldolgozva végezze el a következő szűréseket:
 - hány karakter eltérés van a 3. és a 10. leghosszabb karakterszámú foglalkozás nevében?
 - van-e és ha igen melyik az a foglalkozás, ahol az azonosító első részében (első kötőjele előtti rész) van egymást követően 3 szám karakter?
 
-A szűréseket javasolt két verzióban is elkészíteni. Egyrészt valósítsa meg saját algoritmussal *(ehhez érdemes visszakeresni korábbi félévek tárgyain tanult algoritmusokat, nem árt az ismétlés!)*; másrészt használjon tömb metódusokat is, hogy azokban is gyakorlatot szerezzen. *(Emlékeztetőül pár példa: [itt](../js-03/array-methods.html))*
+A szűréseket javasolt két verzióban is elkészíteni gyakorlás céljából. Egyrészt valósítsa meg saját algoritmussal *(ehhez érdemes visszakeresni korábbi félévek tárgyain tanult algoritmusokat, nem árt az ismétlés!)*; másrészt használjon tömb metódusokat is, hogy azokban is gyakorlatot szerezzen. *(Emlékeztetőül pár példa: [itt](../js-03/array-methods.html))*
 
 A feladat továbbfejlesztéséhez szervezze ki az adatbetöltést és a számításokat service alapúra.
 

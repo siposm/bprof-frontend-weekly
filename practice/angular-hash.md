@@ -56,4 +56,4 @@ c → 3
 2+3+3+5+4+1+5+5+6+6+2+1+6+4+3 = 56
 ```
 
-A kész eredményt bootstrap táblázatban jelenítse meg. Első oszlopban a bemeneti id-t, második oszlopban pedig magát a számot. A táblázatban növekvő sorrendben szerepeljenek az értékek.
+A kész eredményt bootstrap táblázatban jelenítse meg. Első oszlopban a bemeneti id-t, második oszlopban pedig magát a számot. A táblázatban növekvő sorrendben szerepeljenek az értékek. Ahol a kalkulált szám nagyobb mint az átlag, ott az id legyen piros bootstrap badge-ben.

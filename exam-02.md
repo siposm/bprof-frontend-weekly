@@ -20,12 +20,15 @@ Az elméleti rész elsősorban az eddig vett anyagok elméleti hátterére, dolg
 
 Bármilyen tanult, vagy a meglévő tudással megoldható programozási feladat előfordulhat a gyakorlati részen. Az alábbiakban pár gyakorlati feladat található. Egy zárthelyi dolgozat gyakorlati részének feladata ezek egyvelegét tartalmazhatja (természetesen az időlimitnek megfelelő komplexitással).
 
-Gyakorló feladatok nehézségi sorrendben:
+Gyakorló feladatok javasolt sorrendben:
 
+- [CSS refaktorálás](./practice/sass-less.md)
 - [Hash feldolgozó](./practice/angular-hash.md)
+- [Localstorage kezelés](./practice/angular-localstorage.md)
 - [Keylogger](./practice/angular-keylogger.md)
-- [API kezelő](./practice/angular-api.md)
 - [Statisztika](./practice/angular-stats.md)
+- [Login](./practice/angular-login.md)
+- [API kezelő](./practice/angular-api.md)
 - [Todo CRUD](./practice/angular-todo-crud.md)
 
 ### Minta elméleti feladat
