@@ -26,11 +26,11 @@
   </svg>
 
   <h1>Counter</h1>
-  <hr>
-  <input type="number" [(ngModel)]="myNumber">
+  
+  <input placeholder="Specific number" type="number" [(ngModel)]="myNumber">
   <button (click)="add()">Add my number</button>
   <h1>{{counter}}</h1>
-  <hr>
+  
   <div class="increments" *ngIf="increments.length > 0">
     <!-- <p *ngFor="let item of increments" [ngClass]="item > 30 ? 'bigger' : 'smaller'">
       {{ item }}
@@ -38,7 +38,6 @@
     <p *ngFor="let item of increments" [ngClass]="classSelector(item)">
       {{ item }}
     </p>
-    <hr>
   </div>
   <button (click)="up()">UP</button>
   <button (click)="down()">DOWN</button>

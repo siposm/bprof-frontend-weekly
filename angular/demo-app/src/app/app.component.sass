@@ -1,17 +1,33 @@
+
+@mixin border-radious()
+    border-radius: 20px
+    
 svg
     width: 300px
 
 .wrapper
     width: 800px
-    border: 5px solid #000
+    border: 5px solid #d96ff1
+    @include border-radious()
     margin: 0 auto
     text-align: center
+    padding: 30px
 
 .increments
-    background-color: #e3f9cf
+    background-color: #fafafa
+    border: 2px solid #abaaaa
+    @include border-radious()
+    padding: 10px 60px
+    margin-bottom: 30px
+
+    p
+        @include border-radious()
+        width: 300px
+        margin: 0 auto
+        margin-bottom: 10px
 
 .smaller
-    background-color: red
+    background-color: #ff8b8b
 
 .bigger
-    background-color: yellow
+    background-color: #c5fc86

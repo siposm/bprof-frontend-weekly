@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  myNumber: number = 0
+  myNumber: string = ""
   counter: number = 200
   increments: number[] = []
 
@@ -29,9 +29,10 @@ export class AppComponent {
   }
 
   add(): void {
-    this.increments.push(this.myNumber)
-    this.counter += this.myNumber
-    this.myNumber = 0
+    let toAdd = parseInt(this.myNumber)
+    this.increments.push(toAdd)
+    this.counter += toAdd
+    this.myNumber = ""
   }
 
   up(): void {
