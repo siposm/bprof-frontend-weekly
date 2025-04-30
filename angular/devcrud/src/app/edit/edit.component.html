@@ -1,0 +1,9 @@
+<h2>Edit developer</h2>
+<input type="text" class="form-control mb-1" placeholder="Id" [(ngModel)]="developer.id" disabled>
+<input type="text" class="form-control mb-1" placeholder="Name" [(ngModel)]="developer.name">
+<input type="email" class="form-control mb-1" placeholder="Email" [(ngModel)]="developer.email">
+<input type="text" class="form-control mb-1" placeholder="Job" [(ngModel)]="developer.job">
+<input type="number" class="form-control mb-1" placeholder="Age" [(ngModel)]="developer.age">
+<input type="number" class="form-control mb-1" placeholder="Salary" [(ngModel)]="developer.salary">
+<input type="text" class="form-control mb-1" placeholder="Image" [(ngModel)]="developer.image">
+<button class="btn btn-success" (click)="save()">Update and save</button>

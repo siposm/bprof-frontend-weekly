@@ -1,0 +1,33 @@
+<h2>Developers</h2>
+
+<table class="table table-sm table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Img</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let developer of developers" class="align-middle">
+            <td><img class="rounded-circle" src="{{ developer.image }}" alt="prof-img"></td>
+            <td>{{ developer.name }}</td>
+            <td>{{ developer.email }}</td>
+            <td>{{ developer.job }}</td>
+            <td>{{ developer.age }}</td>
+            <td>{{ developer.salary }} HUF</td>
+            <td>
+                <button class="btn btn-sm btn-warning me-1" (click)="edit(developer)">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="remove(developer)">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
