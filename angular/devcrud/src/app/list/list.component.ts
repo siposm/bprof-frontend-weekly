@@ -13,6 +13,8 @@ export class ListComponent {
   developers: Developer[] = []
 
   constructor(private router: Router) {
+    // this.seed()
+    // this.save()
     this.load()
   }
 
@@ -47,6 +49,7 @@ export class ListComponent {
     d1.age = 40
     d1.salary = 350000
     d1.image = "https://randomuser.me/api/portraits/men/1.jpg"
+    d1.skills = ["User Research", "Wireframing", "Prototyping", "Figma", "Sketch", "Interaction Design", "Visual Design"]
     this.developers.push(d1)
 
     let d2 = new Developer()
@@ -57,6 +60,7 @@ export class ListComponent {
     d2.age = 23
     d2.salary = 2500000
     d2.image = "https://randomuser.me/api/portraits/men/2.jpg"
+    d2.skills = ["JavaScript", "React", "CSS", "HTML", "Redux"]
     this.developers.push(d2)
 
     let d3 = new Developer()
@@ -67,6 +71,7 @@ export class ListComponent {
     d3.age = 35
     d3.salary = 1556000
     d3.image = "https://randomuser.me/api/portraits/men/3.jpg"
+    d3.skills = ["HTML", "Vue.js", "CSS", "JavaScript"]
     this.developers.push(d3)
 
     let d4 = new Developer()
@@ -77,6 +82,7 @@ export class ListComponent {
     d4.age = 40
     d4.salary = 999000
     d4.image = "https://randomuser.me/api/portraits/men/4.jpg"
+    d4.skills = ["Node.js", "Express", "MongoDB", "React", "RESTful APIs"]
     this.developers.push(d4)
 
     let d5 = new Developer()
@@ -87,6 +93,7 @@ export class ListComponent {
     d5.age = 30
     d5.salary = 406000
     d5.image = "https://randomuser.me/api/portraits/men/5.jpg"
+    d5.skills = ["Python", "Django", "Flask", "RESTful APIs"]
     this.developers.push(d5)
 
     let d6 = new Developer()
@@ -97,6 +104,7 @@ export class ListComponent {
     d6.age = 40
     d6.salary = 250000
     d6.image = "https://randomuser.me/api/portraits/women/6.jpg"
+    d6.skills = ["JavaScript", "Angular", "HTML", "CSS"]
     this.developers.push(d6)
 
     let d7 = new Developer()
@@ -107,6 +115,7 @@ export class ListComponent {
     d7.age = 60
     d7.salary = 345000
     d7.image = "https://randomuser.me/api/portraits/women/7.jpg"
+    d7.skills = ["Java", "Spring Boot", "SQL"]
     this.developers.push(d7)
 
     let d8 = new Developer()
@@ -117,6 +126,7 @@ export class ListComponent {
     d8.age = 34
     d8.salary = 1500000
     d8.image = "https://randomuser.me/api/portraits/men/8.jpg"
+    d8.skills = ["Angular", "TypeScript"]
     this.developers.push(d8)
 
     let d9 = new Developer()
@@ -127,6 +137,7 @@ export class ListComponent {
     d9.age = 28
     d9.salary = 520000
     d9.image = "https://randomuser.me/api/portraits/women/9.jpg"
+    d9.skills = ["Python"]
     this.developers.push(d9)
 
     let d10 = new Developer()
@@ -137,6 +148,7 @@ export class ListComponent {
     d10.age = 42
     d10.salary = 620000
     d10.image = "https://randomuser.me/api/portraits/men/10.jpg"
+    d10.skills = ["Docker", "Kubernetes", "CI/CD"]
     this.developers.push(d10)
 
     let d11 = new Developer()
@@ -147,6 +159,7 @@ export class ListComponent {
     d11.age = 37
     d11.salary = 460000
     d11.image = "https://randomuser.me/api/portraits/women/11.jpg"
+    d11.skills = ["Agile Methodologies", "Scrum", "JIRA"]
     this.developers.push(d11)
 
     let d12 = new Developer()
@@ -157,6 +170,7 @@ export class ListComponent {
     d12.age = 31
     d12.salary = 730000
     d12.image = "https://randomuser.me/api/portraits/men/12.jpg"
+    d12.skills = ["Python"]
     this.developers.push(d12)
 
     let d13 = new Developer()
@@ -167,6 +181,7 @@ export class ListComponent {
     d13.age = 29
     d13.salary = 395000
     d13.image = "https://randomuser.me/api/portraits/women/13.jpg"
+    d13.skills = ["Network Security"]
     this.developers.push(d13)
 
     let d14 = new Developer()
@@ -177,6 +192,7 @@ export class ListComponent {
     d14.age = 34
     d14.salary = 410000
     d14.image = "https://randomuser.me/api/portraits/women/14.jpg"
+    d14.skills = ["Automated Testing", "Selenium", "Manual Testing"]
     this.developers.push(d14)
 
     let d15 = new Developer()
@@ -187,6 +203,7 @@ export class ListComponent {
     d15.age = 45
     d15.salary = 750000
     d15.image = "https://randomuser.me/api/portraits/men/15.jpg"
+    d15.skills = ["AWS", "Azure", "GCP"]
     this.developers.push(d15)
 
     let d16 = new Developer()
@@ -197,6 +214,7 @@ export class ListComponent {
     d16.age = 39
     d16.salary = 680000
     d16.image = "https://randomuser.me/api/portraits/men/16.jpg"
+    d16.skills = ["SQL", "Database Optimization"]
     this.developers.push(d16)
 
     let d17 = new Developer()
@@ -207,7 +225,7 @@ export class ListComponent {
     d17.age = 33
     d17.salary = 400000
     d17.image = "https://randomuser.me/api/portraits/men/20.jpg"
+    d17.skills = ["Business Analysis", "Data Analysis"]
     this.developers.push(d17)
-
   }
 }
