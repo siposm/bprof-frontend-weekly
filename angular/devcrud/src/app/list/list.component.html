@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let developer of developers" class="align-middle">
+        <tr *ngFor="let developer of devService.developers" class="align-middle">
             <td><img class="rounded-circle" src="{{ developer.image }}" alt="prof-img"></td>
             <td>{{ developer.name }}</td>
             <td>{{ developer.email }}</td>

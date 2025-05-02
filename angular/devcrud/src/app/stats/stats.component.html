@@ -1,14 +1,14 @@
 <div class="alert alert-info" role="alert">
     <h4>Statistics</h4>
     <hr>
-    <ul *ngIf="developers.length > 0">
-        <li>Average salary: <strong>{{ averageSalary() }} HUF</strong></li>
-        <li>Oldest developer: <strong>{{ oldestDeveloper().name }}</strong></li>
-        <li>Highest earning developer: <strong>{{ highestEarningdeveloper().name }}</strong>
+    <ul *ngIf="statService.developers.length">
+        <li>Average salary: <strong>{{ statService.averageSalary() }} HUF</strong></li>
+        <li>Oldest developer: <strong>{{ statService.oldestDeveloper().name }}</strong></li>
+        <li>Highest earning developer: <strong>{{ statService.highestEarningdeveloper().name }}</strong>
         </li>
-        <li>Lowest earning developer: <strong>{{ lowestEarningDeveloper().name }}</strong></ li>
-        <li>Most skilled developer: <strong>{{ mostSkilledDeveloper().name }}</strong></li>
+        <li>Lowest earning developer: <strong>{{ statService.lowestEarningDeveloper().name }}</strong></li>
+        <li>Most skilled developer: <strong>{{ statService.mostSkilledDeveloper().name }}</strong></li>
     </ul>
     <hr>
-    <span *ngFor="let skill of getAllSkills()" class="badge text-bg-light me-2">{{ skill }}</span>
+    <span *ngFor="let skill of statService.getAllSkills()" class="badge text-bg-light me-2">{{ skill }}</span>
 </div>
