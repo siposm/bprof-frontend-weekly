@@ -9,6 +9,7 @@ import { EditComponent } from './edit/edit.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     ListComponent,
     EditComponent,
     FooterComponent,
-    NavComponent
+    NavComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
