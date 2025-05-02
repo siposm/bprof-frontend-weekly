@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Developer } from './developer';
+import { StatisticsService } from './statistics.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,9 @@ export class DeveloperService {
   developers: Developer[] = []
   dbString: string = "bprof_devs"
 
-  constructor() {
+  constructor(private statService: StatisticsService) {
+    // this.seed()
+    // this.save()
     this.load()
   }
 

@@ -11,6 +11,11 @@ import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { StatsComponent } from './stats/stats.component';
 
+import localeHu from '@angular/common/locales/hu'
+import { registerLocaleData } from '@angular/common';
+import { StatisticsService } from './statistics.service';
+registerLocaleData(localeHu)
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +31,7 @@ import { StatsComponent } from './stats/stats.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [StatisticsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

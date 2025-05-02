@@ -1,8 +1,8 @@
-<div class="alert alert-info" role="alert">
+<div class="alert alert-info" role="alert" *ngIf="statService.developers.length;else noDevs">
     <h4>Statistics</h4>
     <hr>
     <ul *ngIf="statService.developers.length">
-        <li>Average salary: <strong>{{ statService.averageSalary() }} HUF</strong></li>
+        <li>Average salary: <strong>{{ statService.averageSalary() | currency:"HUF":"symbol":"1.0-0":"hu" }}</strong></li>
         <li>Oldest developer: <strong>{{ statService.oldestDeveloper().name }}</strong></li>
         <li>Highest earning developer: <strong>{{ statService.highestEarningdeveloper().name }}</strong>
         </li>
@@ -12,3 +12,9 @@
     <hr>
     <span *ngFor="let skill of statService.getAllSkills()" class="badge text-bg-light me-2">{{ skill }}</span>
 </div>
+
+<ng-template #noDevs>
+    <div class="alert alert-warning text-center" role="alert">
+        <b><p>There are no developers in the system, yet!</p></b>
+    </div>
+</ng-template>

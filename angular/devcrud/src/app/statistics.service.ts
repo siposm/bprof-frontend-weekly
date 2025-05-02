@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Developer } from './developer';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class StatisticsService {
 
   developers: Developer[] = []
@@ -11,7 +9,7 @@ export class StatisticsService {
   constructor() {
     this.load()
   }
-
+  
   load(): void {
     let data = JSON.parse(localStorage.getItem("bprof_devs") ?? "[]")
     Object.values(data).map(x => this.developers.push(Object.assign(new Developer(), x)))

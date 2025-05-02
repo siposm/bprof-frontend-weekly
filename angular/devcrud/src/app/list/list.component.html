@@ -1,8 +1,8 @@
 <h2>Developers</h2>
 
-<app-stats></app-stats>
+<app-stats *ngIf="statsVisible"></app-stats>
 
-<table class="table table-sm table-striped table-hover">
+<table class="table table-sm table-striped table-hover" *ngIf="devService.developers.length;else noDevs">
     <thead>
         <tr>
             <th>Img</th>
@@ -21,7 +21,7 @@
             <td>{{ developer.email }}</td>
             <td>{{ developer.job }}</td>
             <td>{{ developer.age }}</td>
-            <td>{{ developer.salary }} HUF</td>
+            <td>{{ developer.salary  | currency:"HUF":"symbol":"1.0-0":"hu" }}</td>
             <td>
                 <button class="btn btn-sm btn-warning me-1" (click)="edit(developer)">
                     <i class="bi bi-pencil"></i>
@@ -33,3 +33,9 @@
         </tr>
     </tbody>
 </table>
+
+<ng-template #noDevs>
+    <div class="alert alert-warning text-center" role="alert">
+        <b><p>There are no developers in the system, yet!</p></b>
+    </div>
+</ng-template>
