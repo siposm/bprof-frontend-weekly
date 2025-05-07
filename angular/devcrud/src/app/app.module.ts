@@ -10,10 +10,10 @@ import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { StatsComponent } from './stats/stats.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import localeHu from '@angular/common/locales/hu'
 import { registerLocaleData } from '@angular/common';
-import { StatisticsService } from './statistics.service';
 registerLocaleData(localeHu)
 
 @NgModule({
@@ -29,9 +29,10 @@ registerLocaleData(localeHu)
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [StatisticsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

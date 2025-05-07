@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Developer } from './developer';
-import { StatisticsService } from './statistics.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,21 +9,51 @@ export class DeveloperService {
   
   developers: Developer[] = []
   dbString: string = "bprof_devs"
+  apiBaseUrl: string = "https://api.siposm.hu/"
 
-  constructor(private statService: StatisticsService) {
+  constructor(private http: HttpClient) {
     // this.seed()
     // this.save()
-    this.load()
+    this.loadApi()
+  }
+
+  loadApi(): void {
+    this.http.get<Developer[]>(this.apiBaseUrl + "getDevelopers").subscribe(x => {
+      this.developers = x
+    })
   }
 
   remove(developer: Developer): void {
-    this.developers = this.developers.filter(x => x.id != developer.id)
-    this.save()
+    this.http.delete(this.apiBaseUrl + "deleteDeveloper", {
+      headers: new HttpHeaders({ "Content-Type": "application/json" }),
+      body: {
+        id: developer.id
+      }
+    }).subscribe({
+      next: (response) => {
+        console.log("::SUCCESS::")
+        console.log("Delete request result:", response)
+        this.developers = this.developers.filter(x => x.id !== developer.id)
+      },
+      error: (error) => {
+        console.log("::ERROR::")
+        console.log("Delete request result:", error)
+      }
+    })
   }
 
   create(developer: Developer): void {
-    this.developers.push(developer)
-    this.save()
+    this.http.post(this.apiBaseUrl + "createDeveloper", developer).subscribe({
+      next: (response) => {
+        console.log("::SUCCESS::")
+        console.log("Create request result:", response)
+        this.developers.push(developer)
+      },
+      error: (error) => {
+        console.log("::ERROR::")
+        console.log("Create request result:", error)
+      }
+    })
   }
 
   load(): void {
@@ -36,9 +66,18 @@ export class DeveloperService {
   }
 
   update(developer: Developer): void {
-    let idx = this.developers.findIndex(x => x.id == developer.id)
-    this.developers[idx] = developer
-    this.save()
+    this.http.put(this.apiBaseUrl + "updateDeveloper", developer).subscribe({
+      next: (response) => {
+        console.log("::SUCCESS::")
+        console.log("Update request result:", response)
+        let index = this.developers.findIndex(x => x.id === developer.id)
+        this.developers[index] = developer
+      },
+      error: (error) => {
+        console.log("::ERROR::")
+        console.log("Update request result:", error)
+      }
+    })
   }
 
   seed(): void {
