@@ -10,16 +10,10 @@ import { DeveloperService } from '../developer.service';
   styleUrl: './list.component.sass'
 })
 export class ListComponent {
-  statsVisible: boolean = true
-
   constructor(private router: Router, public devService: DeveloperService) { }
 
   remove(developer: Developer): void {
     this.devService.remove(developer)
-    this.statsVisible = false
-    setTimeout(() => {
-      this.statsVisible = true
-    })
   }
 
   edit(developer: Developer): void {
