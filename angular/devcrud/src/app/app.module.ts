@@ -9,6 +9,12 @@ import { EditComponent } from './edit/edit.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
+import { StatsComponent } from './stats/stats.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import localeHu from '@angular/common/locales/hu'
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeHu)
 
 @NgModule({
   declarations: [
@@ -17,12 +23,14 @@ import { FormsModule } from '@angular/forms';
     ListComponent,
     EditComponent,
     FooterComponent,
-    NavComponent
+    NavComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

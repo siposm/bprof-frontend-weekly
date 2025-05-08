@@ -1,0 +1,20 @@
+<div class="alert alert-info" role="alert" *ngIf="developers.length;else noDevs">
+    <h4>Statistics</h4>
+    <hr>
+    <ul *ngIf="developers.length">
+        <li>Average salary: <strong>{{ averageSalary | currency:"HUF":"symbol":"1.0-0":"hu" }}</strong></li>
+        <li>Oldest developer: <strong>{{ oldestDeveloper.name }}</strong></li>
+        <li>Highest earning developer: <strong>{{ highestEarningDeveloper.name }}</strong>
+        </li>
+        <li>Lowest earning developer: <strong>{{ lowestEarningDeveloper.name }}</strong></li>
+        <li>Most skilled developer: <strong>{{ mostSkilledDeveloper.name }}</strong></li>
+    </ul>
+    <hr>
+    <span *ngFor="let skill of allSkills" class="badge text-bg-light me-2">{{ skill }}</span>
+</div>
+
+<ng-template #noDevs>
+    <div class="alert alert-warning text-center" role="alert">
+        <b><p>There are no developers in the system, yet!</p></b>
+    </div>
+</ng-template>
