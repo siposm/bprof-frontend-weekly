@@ -2,16 +2,49 @@
 
 ## Számonkérések és határidők
 
-| Szorgalmi hét    | Teendő |
-| -------- | ------- |
-| 8. hét  | 1. zárthelyi dolgozat (elmélet és gyakorlat) |
-| 13. hét | 2. zárthelyi dolgozat (elmélet és gyakorlat) |
-| 14. hét | szerda 12:00 (dél), féléves feladatok leadása a Moodle rendszerben |
-| 14. hét | féléves feladatok bemutatása, védése |
-| 14. hét | pót zárthelyi dolgozat |
+| Hét |  Témakör |
+| --- | --- |
+| 01. | Féléves tematika és menetrend ismertetése |
+| 02. | Komponensek haladó szintű felhasználása Angular keretrendszerben |
+| 03. | Authentikáció használata és tokenek kezelése a kliensoldalon |
+| 04. | Tesztelés, Reactive forms használata |
+| 05. | HTTP kérések haladó szintű kezelése (interceptor, observable, async pipe, stateless) |
+| 06. | Konzultáció |
+| 07. | Rektori szünet |
+| 08. | Zárthelyi dolgozat I. |
+| 09. | Web security I. |
+| 10. | Web security II. |
+| 11. | Rektori szünet |
+| 12. | Zárthelyi dolgozat II. |
+| 13. | Konzultáció |
+| 14. | Pótló zárthelyi dolgozat |
 
-## Leírások
+## TTK
 
-- [Féléves feladat elvárások](./semester-project.md)
-- [ZH 01 menetrend, beosztás, elvárások](./exam-01.md)
-- [ZH 02 menetrend, beosztás, elvárások](./exam-02.md)
+- todo link ide
+
+## Témák
+
+### Komponensek
+
+- komponensek I/O
+- komponensek életciklusa
+- content projection
+- viewChild, viewContainerRef, templateRef
+
+### Auth & token
+
+- bejelentkezés és kijelentkezés
+- token-ek kezelése
+- refresh token
+
+### HTTP kérések haladó kezelése
+
+- env használat
+- http interceptor
+- toast service (bootstrap toast-tal)
+- reactive forms
+- stateless service
+  - observable
+  - memory leak
+  - async pipe
