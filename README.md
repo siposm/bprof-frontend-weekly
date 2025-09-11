@@ -11,7 +11,3 @@
 | 14. hét | pót zárthelyi dolgozat |
 
 ## Leírások
-
-- [Féléves feladat elvárások](./semester-project.md)
-- [ZH 01 menetrend, beosztás, elvárások](./exam-01.md)
-- [ZH 02 menetrend, beosztás, elvárások](./exam-02.md)
