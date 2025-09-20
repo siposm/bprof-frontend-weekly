@@ -19,6 +19,7 @@
 | 13. | Konzultáció |
 | 14. | Pótló zárthelyi dolgozat |
 
+<<<<<<< HEAD
 ## TTK
 
 <https://nik.uni-obuda.hu/targyleirasok/tantargyak/halado-szoftverfejlesztes-es-teszteles/>
@@ -48,3 +49,6 @@
   - observable
   - memory leak
   - async pipe
+=======
+## Leírások
+>>>>>>> e1bd7df690f707c29386a2479b042c75e871cf19

@@ -3,36 +3,18 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "devcrud": {
+    "angular-component-io": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass",
-          "skipTests": true,
+          "style": "scss",
           "standalone": false
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
         },
         "@schematics/angular:directive": {
-          "skipTests": true,
           "standalone": false
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:interceptor": {
-          "skipTests": true
         },
         "@schematics/angular:pipe": {
-          "skipTests": true,
           "standalone": false
-        },
-        "@schematics/angular:resolver": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
         }
       },
       "root": "",
@@ -42,14 +24,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/devcrud",
+            "outputPath": "dist/angular-component-io",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "sass",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
@@ -57,7 +39,7 @@
               }
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -80,13 +62,7 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
-                }
-              ]
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -95,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "devcrud:build:production"
+              "buildTarget": "angular-component-io:build:production"
             },
             "development": {
-              "buildTarget": "devcrud:build:development"
+              "buildTarget": "angular-component-io:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -114,7 +90,7 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "sass",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
@@ -122,7 +98,7 @@
               }
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -131,6 +107,6 @@
     }
   },
   "cli": {
-    "analytics": "de43cce1-7285-49cd-a04f-da9e59ae20eb"
+    "analytics": false
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Developer } from './developer';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class DeveloperService {
   
   developers: Developer[] = []
   dbString: string = "bprof_devs"
-  apiBaseUrl: string = "https://api.siposm.hu/"
+  apiBaseUrl: string = environment.apiBaseUrl
 
   constructor(private http: HttpClient) {
     // this.seed()
