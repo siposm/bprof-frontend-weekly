@@ -19,36 +19,6 @@
 | 13. | Konzultáció |
 | 14. | Pótló zárthelyi dolgozat |
 
-<<<<<<< HEAD
 ## TTK
 
 <https://nik.uni-obuda.hu/targyleirasok/tantargyak/halado-szoftverfejlesztes-es-teszteles/>
-
-## Témák
-
-### Komponensek
-
-- komponensek I/O
-- komponensek életciklusa
-- content projection
-- viewChild, viewContainerRef, templateRef
-
-### Auth & token
-
-- bejelentkezés és kijelentkezés
-- token-ek kezelése
-- refresh token
-
-### HTTP kérések haladó kezelése
-
-- env használat
-- http interceptor
-- toast service (bootstrap toast-tal)
-- reactive forms
-- stateless service
-  - observable
-  - memory leak
-  - async pipe
-=======
-## Leírások
->>>>>>> e1bd7df690f707c29386a2479b042c75e871cf19
