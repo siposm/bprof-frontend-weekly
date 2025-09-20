@@ -1,10 +1,10 @@
 # BPROF - Frontend fejlesztés
 
-## Számonkérések és határidők
+## Heti bontás
 
 | Hét |  Témakör |
 | --- | --- |
-| 01. | Féléves tematika és menetrend ismertetése |
+| 01. | Féléves tematika és menetrend ismertetése, előző félév ismétlése |
 | 02. | Komponensek haladó szintű felhasználása Angular keretrendszerben |
 | 03. | Authentikáció használata és tokenek kezelése a kliensoldalon |
 | 04. | Tesztelés, Reactive forms használata |
@@ -21,7 +21,7 @@
 
 ## TTK
 
-- todo link ide
+<https://nik.uni-obuda.hu/targyleirasok/tantargyak/halado-szoftverfejlesztes-es-teszteles/>
 
 ## Témák
 
