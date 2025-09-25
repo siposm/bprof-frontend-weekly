@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CardComponent } from './card/card.component';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
-  title = 'viewchild';
+  
+  @ViewChild("card") cardComp !: CardComponent
+
+  update(): void {
+    console.log(this.cardComp.secret)
+    this.cardComp.changeMessage()
+  }
 }
