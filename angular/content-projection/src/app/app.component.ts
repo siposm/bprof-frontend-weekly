@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Movie } from './movie';
 
 @Component({
@@ -7,10 +7,10 @@ import { Movie } from './movie';
   standalone: false,
   styleUrl: './app.component.sass'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   movies: Movie[] = []
 
-  constructor() {
+  ngOnInit(): void {
     this.movies.push(
       new Movie("The Matrix", 1999, "Lorem ipsum dolor sit amet..."),
       new Movie("Inception", 2010, "Lorem ipsumamet..."),
