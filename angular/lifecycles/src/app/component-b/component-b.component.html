@@ -1,0 +1,8 @@
+<div>
+    <h4>Component B</h4>
+    <button (click)="changeItem()">Change message</button>
+    <app-child *ngFor="let item of contents"
+        [content]="item"
+        [message]="message"
+    ></app-child>
+</div>
