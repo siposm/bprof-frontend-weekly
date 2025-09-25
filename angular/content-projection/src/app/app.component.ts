@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Movie } from './movie';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
-  title = 'content-projection';
+  movies: Movie[] = []
+
+  constructor() {
+    this.movies.push(
+      new Movie("The Matrix", 1999, "Lorem ipsum dolor sit amet..."),
+      new Movie("Inception", 2010, "Lorem ipsumamet..."),
+      new Movie("Interstellar", 2014, "Lorem ipsum dolor sit ipsum dolor sit ipsum dolor sit amet..."),
+      new Movie("The Dark Knight", 2008, "Lorem ipsum dolor ..."),
+    )
+  }
 }
