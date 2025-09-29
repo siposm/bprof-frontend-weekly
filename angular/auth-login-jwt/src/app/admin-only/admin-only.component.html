@@ -1,0 +1,10 @@
+<div>
+    <h1>Admin component</h1>
+    <button (click)="load()">Load items</button>
+    <hr>
+    <ol>
+        <li *ngFor="let item of items">
+            {{ item.name }}
+        </li>
+    </ol>
+</div>

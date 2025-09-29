@@ -15,7 +15,8 @@ app.use(express.json());
 // --------- "Adatbázis" (memóriában) ---------
 const USERS = [
     { username: 'admin', password: 'admin', role: 'ADMIN' },
-    { username: 'demouser', password: 'demopass123', role: 'USER' },
+    { username: 'demouser', password: 'demopass', role: 'USER' },
+    { username: 'john', password: 'doe', role: 'USER' },
     { username: 'root', password: 'toor', role: 'ROOT' },
 ];
 
@@ -26,14 +27,21 @@ const PERSONS = [
     { id: 4, name: 'John von Neumann', birthyear: 1903 },
 ];
 
+// --------- Helper: token blacklist ---------
+const tokenBlacklist = new Set(); // memóriában tárolt tokenek
+function blacklistToken(token) {
+    tokenBlacklist.add(token);
+}
+function isTokenBlacklisted(token) {
+    return tokenBlacklist.has(token);
+}
+
 // --------- Helper: JWT készítés ---------
 function makeToken(user) {
-    // Általános, Angular-barát payload példa:
     const payload = {
         sub: user.username,
-        roles: [user.role], // frontend könnyen olvassa: roles[]
+        roles: [user.role],
     };
-    // Lejárat: 2 óra
     return jwt.sign(payload, JWT_SECRET, { expiresIn: '2h' });
 }
 
@@ -45,9 +53,13 @@ function authRequired(req, res, next) {
         return res.status(401).json({ error: 'Missing or invalid Authorization header' });
     }
     const token = parts[1];
+    if (isTokenBlacklisted(token)) {
+        return res.status(401).json({ error: 'Token has been logged out' });
+    }
     try {
         const decoded = jwt.verify(token, JWT_SECRET);
-        req.user = decoded; // { sub, roles, iat, exp }
+        req.user = decoded;
+        req.token = token;
         next();
     } catch (err) {
         return res.status(401).json({ error: 'Invalid or expired token' });
@@ -61,7 +73,7 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
 });
 
-// Bejelentkezés: POST /api/auth/login { username, password }
+// Bejelentkezés: POST /api/auth/login
 app.post('/api/auth/login', (req, res) => {
     const { username, password } = req.body || {};
     if (!username || !password) {
@@ -72,8 +84,13 @@ app.post('/api/auth/login', (req, res) => {
         return res.status(401).json({ error: 'Invalid credentials' });
     }
     const token = makeToken(user);
-    // Frontend szempontból kényelmes: { token } formátum
     res.json({ token });
+});
+
+// Kijelentkezés: POST /api/auth/logout
+app.post('/api/auth/logout', authRequired, (req, res) => {
+    blacklistToken(req.token);
+    res.json({ message: 'Logged out successfully' });
 });
 
 // Emberek listázása (védett)

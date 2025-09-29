@@ -9,6 +9,7 @@ import { DemoCompAComponent } from './demo-comp-a/demo-comp-a.component';
 import { DemoCompBComponent } from './demo-comp-b/demo-comp-b.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminOnlyComponent } from './admin-only/admin-only.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     LogoutComponent,
     DemoCompAComponent,
-    DemoCompBComponent
+    DemoCompBComponent,
+    AdminOnlyComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,9 @@
 export const environment = {
     apis: {
-        login: "https://api.siposm.hu/login",
-        developer: "https://api.siposm.hu/getDevelopers",
-        job: "https://api.siposm.hu/job",
+        health: "http://localhost:3000/api/health",
+        login: "http://localhost:3000/api/auth/login",
+        logout: "http://localhost:3000/api/auth/logout",
+        person: "http://localhost:3000/api/person",
     },
-    tokenKey: "my-custom-token-key"
+    tokenKey: "demo-jwt-token"
 };
