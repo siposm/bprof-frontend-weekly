@@ -1,0 +1,16 @@
+<input type="text" placeholder="username" [(ngModel)]="loginModel.username">
+<input type="password" placeholder="password" [(ngModel)]="loginModel.password">
+<button (click)="authService.login(loginModel)" [disabled]="inputCheck()">Login</button>
+
+
+<hr>
+<h4>Login credentials</h4>
+<ul>
+    <li><code>admin - admin [ADMIN]</code></li>
+    <li><code>demouser - demopass [USER]</code></li>
+    <li><code>john - doe [USER]</code></li>
+    <li><code>root - toor [ROOT]</code></li>
+</ul>
+
+
+

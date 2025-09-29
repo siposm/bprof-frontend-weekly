@@ -1,0 +1,17 @@
+<h1>Login demo</h1>
+
+<hr>
+
+<ul>
+  <li *ngIf="!authService.isLoggedIn(); else logOutSection"><a routerLink="login">Login</a></li>
+  <ng-template #logOutSection>
+    <li><a routerLink="logout">Logout</a></li>
+    <li><a routerLink="admin">Admin only</a></li>
+  </ng-template>
+  <li><a routerLink="compa">Component A</a></li>
+  <li><a routerLink="compb">Component B</a></li>
+</ul>
+
+<hr>
+
+<router-outlet></router-outlet>
