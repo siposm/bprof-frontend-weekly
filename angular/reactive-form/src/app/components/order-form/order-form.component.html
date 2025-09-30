@@ -1,0 +1,77 @@
+<div class="m-3 p-3">
+    <h1 class="text-center">Order form</h1>
+
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <form [formGroup]="form" (ngSubmit)="submit()" novalidate class="card shadow-sm">
+                    <div class="card-body">
+
+                        <h5 class="card-title mb-3">Megrendelő űrlap</h5>
+
+                        <!-- Név -->
+                        <div class="mb-3">
+                            <label class="form-label" for="customerName">Megrendelő neve</label>
+                            <input id="customerName" type="text" class="form-control"
+                                [class.is-invalid]="isInvalid('customerName')" formControlName="customerName"
+                                placeholder="Pl. Kovács Anna" />
+                            <div class="invalid-feedback">
+                                A név megadása kötelező.
+                            </div>
+                        </div>
+
+                        <!-- E-mail -->
+                        <div class="mb-3">
+                            <label class="form-label" for="email">Megrendelő e-mail címe</label>
+                            <input id="email" type="email" class="form-control" [class.is-invalid]="isInvalid('email')"
+                                formControlName="email" placeholder="anna@example.com" />
+                            <div *ngIf="form.controls.email.errors" class="invalid-feedback">
+                                <ng-container *ngIf="form.controls.email.errors['required']">Az e-mail megadása
+                                    kötelező.</ng-container>
+                                <ng-container *ngIf="form.controls.email.errors['email']">Kérlek, valós e-mail címet adj
+                                    meg.</ng-container>
+                            </div>
+                        </div>
+
+                        <!-- Irányítószám -->
+                        <div class="mb-3">
+                            <label class="form-label" for="zip">Irányítószám (4 számjegy)</label>
+                            <input id="zip" type="text" inputmode="numeric" maxlength="4" class="form-control"
+                                [class.is-invalid]="isInvalid('zip')" formControlName="zip" placeholder="1234"
+                                pattern="^\d{4}$" />
+                            <div *ngIf="form.controls.zip.errors" class="invalid-feedback">
+                                <ng-container *ngIf="form.controls.zip.errors['required']">Az irányítószám
+                                    kötelező.</ng-container>
+                                <ng-container *ngIf="form.controls.zip.errors['pattern']">Pontosan 4 számjegyet adj meg
+                                    (pl.
+                                    1234).</ng-container>
+                            </div>
+                        </div>
+
+                        <!-- Termék -->
+                        <div class="mb-3">
+                            <label class="form-label" for="productId">Megrendelt termék</label>
+                            <select id="productId" class="form-select" [class.is-invalid]="isInvalid('productId')"
+                                formControlName="productId">
+                                <option value="" disabled>Válassz terméket…</option>
+                                <option *ngFor="let p of products" [value]="p.id">
+                                    {{ p.name }}
+                                </option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Válassz egy terméket.
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                                Megrendelés leadása
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
