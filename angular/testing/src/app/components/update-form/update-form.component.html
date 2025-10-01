@@ -1,0 +1,24 @@
+<hr>
+
+<div *ngFor="let item of students">{{ item.name }} - {{ item.email }}</div>
+
+<hr>
+
+<select [(ngModel)]="selectedId" (change)="load()">
+    <option value="" disabled>-- Válassz egy diákot --</option>
+    <option *ngFor="let stud of students" [value]="stud.id">
+        {{ stud.name }}
+    </option>
+</select>
+
+<hr>
+
+<div *ngIf="student.email">
+    <input type="text" [(ngModel)]="student.id" disabled>
+    <br>
+    <input type="text" [(ngModel)]="student.name" disabled>
+    <br>
+    <input type="text" [(ngModel)]="student.email">
+    <br>
+    <button (click)="update()">Update email</button>
+</div>
