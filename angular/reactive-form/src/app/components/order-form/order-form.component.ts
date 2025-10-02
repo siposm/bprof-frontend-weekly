@@ -21,6 +21,7 @@ export class OrderFormComponent implements OnInit {
       zip: ['', [Validators.required, Validators.pattern(/^\d{4}$/)]],
       productId: ['', [Validators.required]],
     })
+    // https://angular.dev/api/forms/Validators
   }
 
   ngOnInit(): void {
