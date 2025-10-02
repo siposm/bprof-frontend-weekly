@@ -110,7 +110,8 @@ app.get('/api/person/:id', authRequired, (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
     console.log('Demo users:');
-    console.log('- admin / admin');
-    console.log('- demouser / demopass123');
-    console.log('- root / toor');
+    console.log('- admin / admin [ADMIN]');
+    console.log('- demouser / demopass [USER]');
+    console.log('- john / doe [USER]');
+    console.log('- root / toor [ROOT]');
 });
