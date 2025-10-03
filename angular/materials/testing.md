@@ -1,19 +1,81 @@
-# Tesztelés alapok röviden
+# Teszteléssel kapcsolatos ismeretek
+
+A szoftvertesztelés (software testing) a **verifikáció és validáció** folyamata, amelynek célja annak biztosítása, hogy a szoftver hibamentes legyen, megfeleljen a műszaki követelményeknek és használói igényeknek.
+
+- **Verifikáció**: "A terméket jól építjük-e?" — belső működés, követelmények szerinti megfelelés.
+- **Validáció**: "A megfelelő terméket építjük-e?" — felhasználói igények teljesülése.
 
 ## Miért tesztelünk? (Célok)
 
-- **Visszajelzés**: gyorsan kiderül, ha egy változtatás mellékhatást okoz.
-- **Bizalom a refaktorban**: bátrabban alakítható a kód.
-- **Dokumentáció**: a tesztek a komponens/szolgáltatás elvárt viselkedését írják le.
-- **Megismételhetőség**: meghatározott környezetben, determinisztikusan futnak.
+A szoftvertesztelés célja a hibák feltárása, a minőség javítása és annak biztosítása, hogy a rendszer megfeleljen a követelményeknek.
 
-## Tesztszintek Angularban
+- Hibák korai felfedezése → olcsóbb javítás
+- Magasabb szoftverminőség
+- Jobb felhasználói elégedettség
+- Megbízhatóság, biztonság
+- Idő- és költségmegtakarítás
+- Skálázhatóság felismerése
 
-- **Egységteszt (unit)**: Izoláltan vizsgálja a kód kis egységeit (függvények, pipe-ok, szolgáltatások). Nem függ Angular keretrendszer-funkcióktól, gyorsan fut.
-- **Integrációs teszt**: Több Angular elem együttműködését vizsgálja (komponens a saját sablonjával, dependency injection, router/forms modulok). Ez a leggyakoribb tesztszint Angularban.
-- **Végponttól végpontig (E2E)**: A teljes alkalmazást a felhasználói nézőpontból teszteli böngészőben: navigáció, routing, hálózati hívások, DOM-manipulációk. Olyan folyamatokat fed le, mint pl. "bejelentkezés" vagy "kosárba helyezés".
+## Teszt típusok felosztása I
 
-## Mit érdemes tesztelni?
+### Manuális tesztelés
+
+- A tesztelő személyesen hajtja végre a teszteket (pl. kattintások, API-hívások).
+- Időigényes, drága, és hajlamos a **emberi hibákra** (pl. elgépelés, lépések kihagyása).
+
+### Automatizált tesztelés
+
+- Előre megírt tesztszkriptek alapján **gépi futtatás**.
+- Lehet egyszerű (egy metódus tesztelése) vagy összetett (UI műveletsor ellenőrzése).
+- **Megbízhatóbb és skálázhatóbb**, de a minőség a szkriptek megírásán múlik.
+- Alapvető része a **folyamatos integrációnak (CI)** és a **folyamatos szállításnak (CD)**.
+
+## Teszt típusok felosztása II
+
+### White Box Testing
+
+- A tesztelő **ismeri a kód belső működését**.  
+- A cél: a program logikájának, vezérlési útvonalainak, ágai és ciklusai helyességének vizsgálata.  
+- Jellemzően a fejlesztők végzik (pl. unit tesztek).
+
+### Black Box Testing
+
+- A tesztelő **nem ismeri a belső működést**, csak a bemeneteket és a kimeneteket vizsgálja.
+- A cél: a rendszer megfelel-e a specifikációnak.
+- Példák: funkcionális tesztelés, rendszertesztelés.
+
+### Grey Box Testing
+
+- **Köztes megközelítés**: a tesztelő részben ismeri a belső felépítést.
+- Célja: a belső logika részleges ismerete alapján hatékonyabb tesztesetek készítése.
+- Gyakran használják integrációs teszteknél, biztonsági vizsgálatoknál.
+
+## Teszt típusok felosztása III
+
+### Funkcionális tesztelés
+
+- A rendszer **funkcióit** vizsgálja a specifikáció alapján.
+- A kérdés: **"A program azt csinálja, amit kell?"**
+- Példák:
+  - **Unit Testing** (Egységtesztelés) – modulok külön tesztelése
+  - **Integration Testing** (Integrációs tesztelés) – modulok együttműködésének vizsgálata
+  - **System Testing** (Rendszertesztelés) – teljes rendszer ellenőrzése
+  - **Acceptance Testing** (Felhasználói elfogadási teszt) – megfelel-e az ügyféligényeknek
+  - **E2E Testing** (End-to-End tesztelés) – valós felhasználói folyamatok teljes lefutása
+  - **Smoke Testing** (Alapfunkciók gyors ellenőrzése) – annak vizsgálata, hogy érdemes-e további tesztelést futtatni
+
+### Nem-funkcionális tesztelés
+
+- A rendszer **minőségi jellemzőit** vizsgálja (nem a konkrét funkciókat).
+- A kérdés: **"Mennyire jól működik a program?"**
+- Példák:
+  - **Performance Testing** (Teljesítménytesztelés) – mennyire gyors a rendszer normál körülmények között
+  - **Load/Stress Testing** (Terheléses tesztelés) – hogyan viselkedik nagy terhelés, sok felhasználó alatt
+  - **Usability Testing** (Használhatósági tesztelés) – mennyire könnyen és kényelmesen használható a felhasználók számára
+  - **Compatibility Testing** (Kompatibilitási tesztelés) – működik-e különböző böngészőkben, eszközökön, operációs rendszereken
+  - **Security Testing** (Biztonsági tesztelés) – mennyire védett a rendszer a támadásokkal és sebezhetőségekkel szemben
+
+## Mit érdemes tesztelni Angularban?
 
 - **Komponensek**: a bemenetek (Input) hatása a működésre, a kimenetek (Output) megfelelő visszajelzése, a DOM változásai, a sablonlogika működése és a hibás állapotok kezelése.
 - **Szolgáltatások**: az üzleti logika helyessége, az adatok tárolása vagy gyorsítótárazása (cache), valamint a hibás vagy szélsőséges esetek kezelése.
@@ -24,9 +86,32 @@
 
 ## Tesztelési elvek és jó gyakorlatok
 
-- **Viselkedés-orientált**: a *"mit"* teszteld, ne a *"hogyan"*-t. (Felhasználói szemszög, nem privát mezők.)
-- **AAA struktúra**: Arrange – Act – Assert; legyen jól olvasható.
-- **Kicsi, fókuszált tesztek**: egy elvárás/ok egy teszten belül; gyors futás.
+- **Viselkedés-orientált tesztelés (Behavior-Driven)**
+  - A *"mit"* teszteld, ne a *"hogyan"*-t.
+  - A felhasználói szemszögből gondolkodj: a komponens viselkedését figyeld, ne a belső implementációt (pl. privát mezők).
+  - Így a tesztjeid kevésbé lesznek törékenyek a kód átalakításakor.
+
+- **AAA struktúra (Arrange – Act – Assert)**
+  - **Arrange**: állítsd elő a szükséges környezetet (pl. komponens inicializálása, mock objektumok).
+  - **Act**: hajtsd végre a vizsgált műveletet.
+  - **Assert**: ellenőrizd az eredményt egyértelmű elvárásokkal.
+  - Cél: a teszt jól olvasható és önmagyarázó legyen.
+
+- **Kicsi és fókuszált tesztek**
+  - Egy teszt csak **egy elvárást** ellenőrizzen.
+  - Ha több különböző dologra vagy kíváncsi, bontsd szét több tesztre.
+  - Könnyebb lesz megérteni a hibát, ha pontosan tudod, mi bukott el.
+
+- **Gyorsan futó tesztek**
+  - A jó tesztek másodpercek alatt lefutnak.
+  - Gyors visszajelzést adnak, így bátran futtathatók gyakran (akár minden mentésnél vagy CI pipeline-ban).
+
+- **Független tesztek**
+  - A tesztek **ne függjenek egymás sorrendjétől vagy állapotától**.
+  - Mindegyik önállóan is lefuthasson, így stabilabb a teljes tesztkészlet.
+
+- **Olvasható, karbantartható tesztek**
+  - A tesztek is kód: legyenek érthetőek, beszédes nevűek, és kövessék a clean code elveket.
 
 ## Kód lefedettség
 
@@ -39,36 +124,34 @@ A test coverage azt mutatja meg, hogy a kód milyen arányban lett lefedve teszt
 | **Dummy** | Csak "helykitöltő", nincs valódi logika. | Amikor kell egy objektum a metódus szignatúrához, de a tesztben nem használjuk. | Üres `User` objektum, amit átadsz egy függvénynek, de a tesztben nincs rá szükség. |
 | **Stub** | Előre beállított válaszokat ad, nem reagál a hívásokra dinamikusan. | Ha az adott függvény/komponens kimenete kell a teszthez, de nem akarjuk a valódi logikát futtatni. | Egy `HttpService.get()` mindig fix JSON-t ad vissza. |
 | **Fake** | Egyszerűsített, működő implementáció. | Ha szeretnél logikát, de "könnyített" formában, külső függőség nélkül. | In-memory adatbázis az igazi DB helyett. |
-| **Spy** | Megfigyeli, hogyan hívták (hányszor, milyen paraméterekkel), opcionálisan válaszokat is adhat. | Ha ellenőrizni akarod, hogy egy függvényt valóban meghívtak-e. | Jasmine `spyOn(service, "save")`. |
 | **Mock** | Előre beállított elvárásokkal rendelkező helyettesítő. Ha a kód eltér ettől, a teszt elbukik. | Viselkedés ellenőrzése (behavior verification). | Egy mockolt API kliens, amelyet kötelező pontosan így meghívni: `POST /login`. |
+| **Spy** | Megfigyeli, hogyan hívták (hányszor, milyen paraméterekkel), opcionálisan válaszokat is adhat. | Ha ellenőrizni akarod, hogy egy függvényt valóban meghívtak-e. | Jasmine `spyOn(service, "save")`. |
 
 ## Főbb eszközök és környezet
 
-### Tesztfuttatók és keretrendszerek
+### Jasmine
 
-#### Jasmine
-
-Egy **JavaScript tesztelési keretrendszer** (testing framework), amely biztosítja a **tesztelési nyelvet és logikát**, amivel megfogalmazzuk, hogy mit várunk a kódtól.
+A **JavaScript tesztelési keretrendszer** (testing framework), amely biztosítja a **tesztelési nyelvet és logikát**, amellyel meghatározható, hogy mit kell a kódnak teljesítenie.
 
 - **Szintaxis**: olvasható, BDD (Behavior-Driven Development) stílusú – `describe()`, `it()`, `expect()`.
 - **Assertion (állítások)**: beépített matcher-ek (`toBe`, `toEqual`, `toContain`, stb.).
-- **Spy-ok**: függvények/módszerek "megfigyelése" (hány hívás, milyen paraméterekkel).
-- **Async támogatás**: `done()` callback, Promise/async-await integráció, vagy Angularban a `fakeAsync` és `tick`.
+- **Spy-ok**: függvények/módszerek "megfigyelése" (hány hívás történt, milyen paraméterekkel).
+- **Aszinkron támogatás**: `done()` callback, Promise/async-await integráció, valamint Angularban a `fakeAsync` és `tick`.
 
-#### Karma
+### Karma
 
-Egy **tesztfuttató környezet** (test runner), amit a Google fejlesztett. Felfogható "motorháztető alatti motor"-ként is, ami felállítja a tesztkörnyezetet, böngészőt indít, futtatja a teszteket és összegyűjti az eredményeket.
+Egy **tesztfuttató környezet** (test runner), amelyet a Google fejlesztett. Lényegében a "motorháztető alatti motor", amely előkészíti a környezetet, böngészőt indít, futtatja a teszteket és összegyűjti az eredményeket.
 
 - **Fő szerep**: böngészőben futtatja a Jasmine-tesztek kódját.
-- **Integráció**: Angular CLI projektekben alapból Karma van beállítva, így ha `ng test`-et futtatsz, Karma indítja a böngészőt és futtatja benne a teszteket.
-- **Támogatott böngészők**: Chrome, Firefox, Edge, akár headless módban is (CI környezetben).
-- **Kimenet**: a futtatott tesztek eredménye (zöld/piros), valamint coverage riport, ha bekapcsoljuk.
-- **Plugin rendszer**: riporterek (pl. progress, spec, HTML), böngésző launcherek, coverage mérések.
+- **Integráció**: Angular CLI projektekben alapértelmezetten Karma van beállítva, így az `ng test` parancs a Karma segítségével indítja a böngészőt és futtatja a teszteket.
+- **Támogatott böngészők**: Chrome, Firefox, Edge, valamint headless mód (CI környezetben).
+- **Kimenet**: a tesztek futási eredménye (zöld/piros), valamint opcionálisan coverage riport.
+- **Plugin rendszer**: riporterek (pl. progress, spec, HTML), böngésző-launcherek, coverage mérések.
 
 ### Angular teszt API-k
 
-- **TestBed**: Angular moduláris tesztkörnyezet, DI, deklarációk, providerek beállítása.
-- **ComponentFixture**: komponens példány + template + change detection kezelése.
-- **HttpTestingController**: HttpClient hívások ellenőrzött stubolása.
-- **RouterTestingModule, NoopAnimationsModule**: integrációs tesztekhez.
-- **Angular Material Harness-ek**: stabil, hozzáférhetőségi szempontból is barátságos komponens-lekérdezés.
+- **TestBed**: moduláris tesztkörnyezet Angularhoz, amely beállítja a DI-t, deklarációkat és providereket.
+- **ComponentFixture**: komponens példány, template és change detection kezelése.
+- **HttpTestingController**: HttpClient-hívások ellenőrzött stubolása.
+- **RouterTestingModule, NoopAnimationsModule**: integrációs tesztek támogatása.
+- **Angular Material Harness-ek**: stabil és hozzáférhetőségi szempontból is barátságos komponens-lekérdezési API.
