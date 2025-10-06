@@ -20,7 +20,7 @@ const USERS = [
     { username: 'root', password: 'toor', role: 'ROOT' },
 ];
 
-const PERSONS = [
+const PEOPLE = [
     { id: 1, name: 'Ada Lovelace', birthyear: 1815 },
     { id: 2, name: 'Alan Turing', birthyear: 1912 },
     { id: 3, name: 'Grace Hopper', birthyear: 1906 },
@@ -95,13 +95,13 @@ app.post('/api/auth/logout', authRequired, (req, res) => {
 
 // Emberek listázása (védett)
 app.get('/api/person', authRequired, (req, res) => {
-    res.json(PERSONS);
+    res.json(PEOPLE);
 });
 
 // Egy ember lekérése id alapján (védett)
 app.get('/api/person/:id', authRequired, (req, res) => {
     const id = Number(req.params.id);
-    const p = PERSONS.find(x => x.id === id);
+    const p = PEOPLE.find(x => x.id === id);
     if (!p) return res.status(404).json({ error: 'Person not found' });
     res.json(p);
 });
