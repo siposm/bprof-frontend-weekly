@@ -43,6 +43,9 @@ var products = new List<Product>
     new(1, "MacBook Pro", 349999, 5, "electronics"),
     new(2, "Wireless Mouse", 499, 50, "electronics"),
     new(3, "Dog Food 2kg", 2999, 100, "pet"),
+    new(4, "Cat Food 5kg", 5999, 110, "pet"),
+    new(5, "LG ultrawide monitor", 290000, 22, "electronics"),
+    new(6, "Cat toy", 999, 120, "pet"),
 };
 builder.Services.AddSingleton(products);
 
@@ -84,11 +87,11 @@ app.MapPost(
 
         var token = CreateJwt(u, JwtKey, JwtIssuer, JwtAudience, expiresMinutes: 60);
         return Results.Ok(
-            new
+            new TokenDto
             {
-                access_token = token,
-                token_type = "Bearer",
-                expires_in = 3600,
+                AccessToken = token,
+                TokenType = "Bearer",
+                ExpiresIn = 3600,
             }
         );
     }
@@ -222,4 +225,11 @@ public record LoginDto
 {
     public string Username { get; init; } = "";
     public string Password { get; init; } = "";
+}
+
+public record TokenDto
+{
+    public string AccessToken { get; init; } = "";
+    public string TokenType { get; init; } = "";
+    public int ExpiresIn { get; init; } = 0;
 }
