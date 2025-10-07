@@ -1,0 +1,46 @@
+<div class="mx-3 my-3">
+  <div class="text-end mb-3">
+    <span class="badge text-bg-success">BACKEND STATUS: {{ (status$ | async)?.status }}</span>
+  </div>
+  
+  <h3 class="text-center py-2 my-3">LOGIN</h3>
+  <input class="form-control mb-3" type="text" [(ngModel)]="loginModel.username" placeholder="Username">
+  <input class="form-control" type="password" [(ngModel)]="loginModel.password" placeholder="Password">
+  <button class="btn btn-success mt-3" (click)="login()">Login</button>
+  <button class="btn btn-warning ms-3 mt-3" (click)="logout()">Logout</button>
+  
+  <h3 class="text-center py-2 my-3">LIST</h3>
+  <table class="table table-sm table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of products$ | async">
+        <td>{{ prod.id }}</td>
+        <td>{{ prod.name }}</td>
+        <td>{{ prod.price | number:'1.0-0' }} HUF</td>
+        <td>{{ prod.stock }} pcs available</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="text-center py-2 my-3">CREATE</h3>
+  Name:
+  <input class="form-control" type="text" [(ngModel)]="newProduct.name">
+  Category:
+  <input class="form-control" type="text" [(ngModel)]="newProduct.category">
+  Price:
+  <input class="form-control" type="number" [(ngModel)]="newProduct.price">
+  Stock:
+  <input class="form-control" type="number" [(ngModel)]="newProduct.stock">
+  <button class="btn btn-primary mt-3" (click)="create()">Create new</button>
+  
+  <h3 class="text-center py-2 my-3">DELETE</h3>
+  <input class="form-control" type="text" [(ngModel)]="deleteId" placeholder="ID of product">
+  <button class="btn btn-danger mt-3" (click)="delete()">Delete</button>
+</div>
