@@ -14,7 +14,9 @@ export class AuthService {
   login(loginModel: LoginModel): void {
     this.http.post<TokenModel>(environment.apis.login, loginModel)
       .subscribe(res => {
-        const token = res.access_token
+        console.log(res)
+        res
+        const token = res.accessToken
         if (!token) {
           console.error("Login response nem tartalmaz token-t.")
           return
