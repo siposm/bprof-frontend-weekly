@@ -1,0 +1,19 @@
+<h2>Observable + RxJS operátorok</h2>
+
+<p><i>A lista 2 másodperc késleltetéssel töltődik be...</i></p>
+
+<ul>
+  <li *ngFor="let p of products$ | async">
+    {{ p.name }} - {{ p.price | currency:"HUF" }}
+  </li>
+</ul>
+
+<hr>
+
+<p><i>A lista 5 másodperc késleltetéssel töltődik be...</i></p>
+
+<ul>
+  <li *ngFor="let p of products2">
+    {{ p.name }} - {{ p.price }}
+  </li>
+</ul>
