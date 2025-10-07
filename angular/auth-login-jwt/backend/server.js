@@ -27,6 +27,15 @@ const PEOPLE = [
     { id: 4, name: 'John von Neumann', birthyear: 1903 },
 ];
 
+const PRODUCTS = [
+    { id: 1, name: 'Laptop Pro 14"', price: 349999, stock: 5, category: 'electronics' },
+    { id: 2, name: 'Wireless Mouse', price: 4999, stock: 50, category: 'electronics' },
+    { id: 3, name: 'Dog Food 2kg', price: 2999, stock: 100, category: 'pet' },
+];
+let nextProductId = Math.max(...PRODUCTS.map(p => p.id)) + 1;
+
+
+
 // --------- Helper: token blacklist ---------
 const tokenBlacklist = new Set(); // memóriában tárolt tokenek
 function blacklistToken(token) {
@@ -105,6 +114,79 @@ app.get('/api/person/:id', authRequired, (req, res) => {
     if (!p) return res.status(404).json({ error: 'Person not found' });
     res.json(p);
 });
+
+// ******************************************************************************************
+
+// Lista (GET /api/products)
+app.get('/api/product', (req, res) => {
+    res.json(PRODUCTS);
+});
+
+// Egy termék lekérése (GET /api/product/:id)
+app.get('/api/product/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const prod = PRODUCTS.find(p => p.id === id);
+    if (!prod) return res.status(404).json({ error: 'Product not found' });
+    res.json(prod);
+});
+
+// Létrehozás (POST /api/product)
+// Body példa: { "name":"X", "price":12345, "stock":10, "category":"electronics" }
+app.post('/api/product', (req, res) => {
+    const { name, price, stock = 0, category = null } = req.body || {};
+    if (!name || typeof price !== 'number') {
+        return res.status(400).json({ error: 'name and numeric price are required' });
+    }
+    const newProd = { id: nextProductId++, name, price, stock, category };
+    PRODUCTS.push(newProd);
+    res.status(201).json(newProd);
+});
+
+// Teljes módosítás (PUT /api/product/:id)
+// Body-ben legyen legalább name + price (stock, category opcionális)
+app.put('/api/product/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const idx = PRODUCTS.findIndex(p => p.id === id);
+    if (idx === -1) return res.status(404).json({ error: 'Product not found' });
+
+    const { name, price, stock = 0, category = null } = req.body || {};
+    if (!name || typeof price !== 'number') {
+        return res.status(400).json({ error: 'name and numeric price are required' });
+    }
+
+    PRODUCTS[idx] = { id, name, price, stock, category };
+    res.json(PRODUCTS[idx]);
+});
+
+// Részleges módosítás (PATCH /api/product/:id)
+app.patch('/api/product/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const prod = PRODUCTS.find(p => p.id === id);
+    if (!prod) return res.status(404).json({ error: 'Product not found' });
+
+    const candidate = { ...prod, ...req.body };
+    if ('price' in req.body && typeof candidate.price !== 'number') {
+        return res.status(400).json({ error: 'price must be numeric' });
+    }
+    Object.assign(prod, candidate);
+    res.json(prod);
+});
+
+// Törlés (DELETE /api/product/:id)
+app.delete('/api/product/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const idx = PRODUCTS.findIndex(p => p.id === id);
+    if (idx === -1) return res.status(404).json({ error: 'Product not found' });
+
+    PRODUCTS.splice(idx, 1);
+    res.status(204).send();
+});
+
+
+
+
+
+
 
 // --------- Szerver indítás ---------
 app.listen(PORT, () => {
