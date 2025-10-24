@@ -190,10 +190,26 @@ app.delete('/api/product/:id', (req, res) => {
 
 // --------- Szerver indítás ---------
 app.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`);
-    console.log('Demo users:');
-    console.log('- admin / admin [ADMIN]');
-    console.log('- demouser / demopass [USER]');
-    console.log('- john / doe [USER]');
-    console.log('- root / toor [ROOT]');
-});
+    const pink = '\x1b[95m'   // világos magenta (pink)
+    const green = '\x1b[92m'  // világos zöld
+    const reset = '\x1b[0m'   // visszaállítja az alap színt
+
+    console.log()
+    console.log(`${pink}=======================================================${reset}`)
+    console.log(`${green}Server listening on http://localhost:${PORT}${reset}`)
+    console.log()
+    console.log(`${pink}> API endpoints${reset}`)
+    console.log('  /api/health')
+    console.log('  /api/person')
+    console.log('  /api/person/:id')
+    console.log('  /api/product')
+    console.log('  /api/product/:id')
+    console.log()
+    console.log(`${pink}> Demo users${reset}`)
+    console.log('  admin / admin [role: ADMIN]')
+    console.log('  demouser / demopass [role: USER]')
+    console.log('  john / doe [role: USER]')
+    console.log('  root / toor [role: ROOT]')
+    console.log(`${pink}=======================================================${reset}`)
+    console.log()
+})
